@@ -1,0 +1,34 @@
+# El Query sirve solo para hacer consultar pero no para modificar
+type Query {
+    findStudentById(id: String) : Student,
+    findAll : [Student]
+}
+
+type Student {
+
+    id: ID,
+    name: String,
+    lastname: String,
+    age: Int,
+    course: Course
+
+}
+
+type Course {
+    name: String,
+    category: String,
+    teacher: String
+}
+
+# Mutation
+type Mutation {
+    createStudent(student: InputStudent) : Student
+    deleteStudent(id: String) : String
+}
+
+input InputStudent {
+    name: String,
+    lastname: String,
+    age: Int,
+    courseId: String!
+}
